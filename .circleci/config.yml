@@ -12,7 +12,9 @@ jobs:
           command: bundle install
       - run:
           name: Run specs with rspec-atoms
-          command: circleci run testsuite "rspec-atoms specs"
+          command: |
+            mkdir -p tmp/test-results
+            circleci run testsuite "rspec-atoms specs"
       - store_test_results:
           path: tmp/test-results
       - run:
