@@ -1,0 +1,16 @@
+---
+name: rspec-atoms specs
+
+discover: bundle exec ruby -Ilib exe/rspec-atoms discover spec
+
+run: >-
+  bundle exec ruby -Ilib exe/rspec-atoms run
+  --junit "<< outputs.junit >>"
+  --
+  << test.atoms >>
+
+outputs:
+  junit: tmp/test-results/rspec.xml
+
+options:
+  dynamic-test-splitting: true
